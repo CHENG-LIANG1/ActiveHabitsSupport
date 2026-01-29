@@ -3,254 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ActiveHabits Support | ActiveHabits 支持</title>
+    <title>ActiveHabits Support | 支持中心</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #6366f1;
+            --accent: #a855f7;
+            --bg: #0f172a;
+            --card: rgba(30, 41, 59, 0.7);
+            --text-p: #f8fafc;
+            --text-s: #94a3b8;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+            background-color: var(--bg);
+            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
+            color: var(--text-p);
             line-height: 1.6;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            -webkit-font-smoothing: antialiased;
             min-height: 100vh;
-            color: #e0e0e0;
         }
         
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 80px 24px;
         }
         
-        .header {
+        header {
             text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .app-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 22px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
+            margin-bottom: 80px;
         }
         
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            background: linear-gradient(to bottom, #ffffff 30%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .subtitle {
-            color: #a0a0a0;
-            font-size: 1.1rem;
-        }
-        
-        .lang-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .lang-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(102, 126, 234, 0.5);
-        }
-        
-        h3 {
-            font-size: 1.2rem;
-            margin: 25px 0 15px;
-            color: #667eea;
-        }
-        
-        p, li {
-            color: #c0c0c0;
             margin-bottom: 12px;
         }
         
-        ul {
-            padding-left: 20px;
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-s);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
         
-        li {
-            margin-bottom: 8px;
+        .lang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
         }
         
-        .contact-card {
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: center;
+        .section {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
         }
         
-        .contact-card a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+        
+        h3 {
             font-size: 1.1rem;
+            margin: 20px 0 10px;
+            color: #fff;
         }
         
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
+        p, li { color: var(--text-s); font-size: 0.95rem; margin-bottom: 10px; }
+        ul { padding-left: 20px; margin-bottom: 20px; }
         
         .faq-item {
             margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
         }
         
-        .faq-q {
+        .q { color: #f1f5f9; font-weight: 600; display: block; margin-bottom: 5px; }
+        
+        .contact-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 12px;
             font-weight: 600;
-            color: #e0e0e0;
-            margin-bottom: 8px;
+            transition: all 0.3s;
         }
         
-        .faq-a {
-            color: #a0a0a0;
+        .contact-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
         }
         
-        .footer {
+        footer {
+            margin-top: 100px;
             text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #606060;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 40px;
+            color: #475569;
             font-size: 0.9rem;
         }
+
+        .footer-links { margin-top: 15px; }
+        .footer-links a { color: #64748b; text-decoration: none; margin: 0 10px; }
+        .footer-links a:hover { color: var(--primary); }
         
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            .lang-section {
-                padding: 20px;
-            }
+        @media (max-width: 768px) {
+            .lang-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+            .container { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <div class="app-icon">📊</div>
+        <header>
             <h1>ActiveHabits</h1>
-            <p class="subtitle">Support Center | 支持中心</p>
+            <p class="subtitle">Support & Resources</p>
         </header>
         
-        <!-- English Section -->
-        <section class="lang-section">
-            <h2 class="lang-title">English</h2>
-            
-            <h3>About ActiveHabits</h3>
-            <p>ActiveHabits is a beautiful and intuitive habit tracking app designed to help you build consistent daily routines. With features like streak tracking, detailed analytics, achievements, and customizable themes, staying on top of your habits has never been easier.</p>
-            
-            <h3>Key Features</h3>
-            <ul>
-                <li><strong>Simple Habit Logging</strong> - One-tap logging with haptic feedback</li>
-                <li><strong>Streak Tracking</strong> - Monitor your consistency with streak counters</li>
-                <li><strong>Analytics & Insights</strong> - Weekly, monthly, and yearly statistics with heatmaps</li>
-                <li><strong>Achievement System</strong> - Unlock 50+ achievements across multiple tiers</li>
-                <li><strong>Beautiful Themes</strong> - 20+ themes including developer favorites</li>
-                <li><strong>Widgets</strong> - Quick access from your home screen</li>
-                <li><strong>Privacy First</strong> - All data stored locally on your device</li>
-            </ul>
-            
-            <h3>Frequently Asked Questions</h3>
-            
-            <div class="faq-item">
-                <p class="faq-q">Q: Is my data synced to the cloud?</p>
-                <p class="faq-a">A: No. ActiveHabits stores all data locally on your device for maximum privacy. Your habits and logs never leave your device.</p>
+        <div class="lang-grid">
+            <div class="section">
+                <h2>English</h2>
+                <h3>Features</h3>
+                <ul>
+                    <li>Intuitive habit tracking</li>
+                    <li>Advanced analytics & heatmaps</li>
+                    <li>Privacy-focused (Local only)</li>
+                </ul>
+                
+                <h3>FAQ</h3>
+                <div class="faq-item">
+                    <span class="q">Data privacy?</span>
+                    <p>All data stays on your device. No cloud, no tracking.</p>
+                </div>
+                
+                <a href="mailto:madfool@icloud.com" class="contact-btn">Email Support</a>
             </div>
             
-            <div class="faq-item">
-                <p class="faq-q">Q: How many habits can I track?</p>
-                <p class="faq-a">A: You can track up to 20 habits simultaneously.</p>
+            <div class="section">
+                <h2>中文</h2>
+                <h3>功能亮点</h3>
+                <ul>
+                    <li>直观的习惯追踪体验</li>
+                    <li>深度数据分析与热力图</li>
+                    <li>隐私安全（纯本地存储）</li>
+                </ul>
+                
+                <h3>常见问题</h3>
+                <div class="faq-item">
+                    <span class="q">数据会同步吗？</span>
+                    <p>ActiveHabits 不设云端，所有数据仅存储在您的设备中。</p>
+                </div>
+                
+                <a href="mailto:madfool@icloud.com" class="contact-btn">联系支持</a>
             </div>
-            
-            <div class="faq-item">
-                <p class="faq-q">Q: Can I export my data?</p>
-                <p class="faq-a">A: Data export functionality is coming in a future update.</p>
-            </div>
-            
-            <div class="faq-item">
-                <p class="faq-q">Q: How do I unlock achievements?</p>
-                <p class="faq-a">A: Achievements are unlocked automatically as you log habits. Keep building streaks and completing habits to discover all achievements!</p>
-            </div>
-            
-            <h3>Contact Support</h3>
-            <p>If you have questions, feedback, or need assistance, please don't hesitate to reach out:</p>
-            
-            <div class="contact-card">
-                <a href="mailto:madfool@icloud.com">madfool@icloud.com</a>
-            </div>
-        </section>
+        </div>
         
-        <!-- Chinese Section -->
-        <section class="lang-section">
-            <h2 class="lang-title">中文</h2>
-            
-            <h3>关于 ActiveHabits</h3>
-            <p>ActiveHabits 是一款精美且直观的习惯追踪应用，旨在帮助您建立持续的日常习惯。通过连续打卡追踪、详细数据分析、成就系统和可自定义主题等功能，管理习惯从未如此简单。</p>
-            
-            <h3>主要功能</h3>
-            <ul>
-                <li><strong>简单记录</strong> - 一键记录，带有触感反馈</li>
-                <li><strong>连续打卡追踪</strong> - 通过连续天数监控您的坚持程度</li>
-                <li><strong>数据分析与洞察</strong> - 每周、每月、每年统计数据及热力图</li>
-                <li><strong>成就系统</strong> - 解锁 50+ 个多层级成就</li>
-                <li><strong>精美主题</strong> - 20+ 款主题，包括开发者最爱</li>
-                <li><strong>桌面小组件</strong> - 从主屏幕快速访问</li>
-                <li><strong>隐私优先</strong> - 所有数据本地存储在您的设备上</li>
-            </ul>
-            
-            <h3>常见问题</h3>
-            
-            <div class="faq-item">
-                <p class="faq-q">问：我的数据会同步到云端吗？</p>
-                <p class="faq-a">答：不会。ActiveHabits 将所有数据存储在您的设备本地，以确保最大程度的隐私保护。您的习惯和记录永远不会离开您的设备。</p>
+        <footer>
+            <p>&copy; 2026 Cheng Liang. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
             </div>
-            
-            <div class="faq-item">
-                <p class="faq-q">问：我可以追踪多少个习惯？</p>
-                <p class="faq-a">答：您最多可以同时追踪 20 个习惯。</p>
-            </div>
-            
-            <div class="faq-item">
-                <p class="faq-q">问：我可以导出数据吗？</p>
-                <p class="faq-a">答：数据导出功能将在未来的更新中推出。</p>
-            </div>
-            
-            <div class="faq-item">
-                <p class="faq-q">问：如何解锁成就？</p>
-                <p class="faq-a">答：成就会在您记录习惯时自动解锁。继续保持连续打卡并完成习惯，发现所有成就吧！</p>
-            </div>
-            
-            <h3>联系支持</h3>
-            <p>如果您有任何问题、反馈或需要帮助，请随时联系我们：</p>
-            
-            <div class="contact-card">
-                <a href="mailto:madfool@icloud.com">madfool@icloud.com</a>
-            </div>
-        </section>
-        
-        <footer class="footer">
-            <p>&copy; 2026 ActiveHabits. All rights reserved.</p>
-            <p>Made with care for habit builders everywhere.</p>
         </footer>
     </div>
 </body>
