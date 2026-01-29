@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | GeekBio</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #0f172a;
+            --card: rgba(30, 41, 59, 0.7);
+            --text-p: #f8fafc;
+            --text-s: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+            background-color: var(--bg);
+            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
+            color: var(--text-p);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            background: linear-gradient(to bottom, #ffffff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .lang-switch button {
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-s);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .section {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 { font-size: 1.4rem; margin: 30px 0 15px; color: var(--primary); border-left: 4px solid var(--primary); padding-left: 15px;}
+        h2:first-of-type { margin-top: 0; }
+        h3 { font-size: 1.1rem; margin: 20px 0 10px; color: #fff; }
+        p, li { color: var(--text-s); font-size: 0.95rem; margin-bottom: 12px; }
+        ul { padding-left: 20px; margin-bottom: 20px; }
+        
+        .faq-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .q { color: #f1f5f9; font-weight: 600; display: block; margin-bottom: 5px; }
+
+        .contact-card {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--primary);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            padding-top: 40px;
+            color: #475569;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .section { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GeekBio</h1>
+            <div class="lang-switch">
+                <button onclick="showLang('en')" id="btn-en">English</button>
+                <button onclick="showLang('zh')" id="btn-zh">简体中文</button>
+            </div>
+        </header>
+        
+        <article id="content-en" class="section">
+            <h2>Support Center</h2>
+            <h3>Common Questions</h3>
+            <div class="faq-item">
+                <span class="q">How to create a profile?</span>
+                <p>Go to "Settings" → "Profile Management" to add or edit your name, skills, and links.</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">How to export images?</span>
+                <p>Confirm your style in "Export Preview" and tap "Save to Photos".</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">Why is photo library access needed?</span>
+                <p>Only to save your generated cards. We do not read or upload your photos.</p>
+            </div>
+
+            <h3>Troubleshooting</h3>
+            <ul>
+                <li><strong>Unable to save:</strong> Ensure "Add Photos Only" permission is granted in iOS Settings.</li>
+                <li><strong>UI Glitches:</strong> Try restarting the app or switching themes.</li>
+            </ul>
+
+            <div class="contact-card">
+                <p style="margin-bottom: 10px;">Need more help?</p>
+                <a href="mailto:madfool@icloud.com">madfool@icloud.com</a>
+            </div>
+        </article>
+
+        <article id="content-zh" class="section">
+            <h2>支持中心</h2>
+            <h3>常见问题</h3>
+            <div class="faq-item">
+                <span class="q">如何创建/编辑资料？</span>
+                <p>在“设置”→“资料管理”中可添加或编辑姓名、技能标签及社交链接。</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">如何导出名片图片？</span>
+                <p>在“导出预览”确认样式后，选择“保存到照片”即可。</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">为什么需要相册权限？</span>
+                <p>仅用于将生成的个人资料卡写入相册，应用不会读取或扫描您的私密照片。</p>
+            </div>
+
+            <h3>故障排查</h3>
+            <ul>
+                <li><strong>无法保存图片：</strong> 请前往系统“设置 → GeekBio”确保已允许“添加照片”权限。</li>
+                <li><strong>数据显示异常：</strong> 请尝试重启应用或切换一次主题。</li>
+            </ul>
+
+            <div class="contact-card">
+                <p style="margin-bottom: 10px;">需要更多帮助？</p>
+                <a href="mailto:madfool@icloud.com">madfool@icloud.com</a>
+            </div>
+        </article>
+
+        <footer>
+            <p>&copy; 2026 Cheng Liang. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showLang(lang) {
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-switch button').forEach(el => el.classList.remove('active'));
+            const content = document.getElementById('content-' + lang);
+            const btn = document.getElementById('btn-' + lang);
+            if (content && btn) {
+                content.classList.add('active');
+                btn.classList.add('active');
+            }
+        }
+        (function autoDetectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage; 
+            showLang(userLang.startsWith('zh') ? 'zh' : 'en');
+        })();
+    </script>
+</body>
+</html>

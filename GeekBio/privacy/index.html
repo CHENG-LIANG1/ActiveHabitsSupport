@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | GeekBio</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #0f172a;
+            --card: rgba(30, 41, 59, 0.7);
+            --text-p: #f8fafc;
+            --text-s: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+            background-color: var(--bg);
+            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
+            color: var(--text-p);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to bottom, #ffffff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .lang-switch button {
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-s);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-switch button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .section {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 { font-size: 1.3rem; margin: 30px 0 15px; color: var(--primary); }
+        h2:first-of-type { margin-top: 0; }
+        p, li { color: var(--text-s); font-size: 0.95rem; margin-bottom: 16px; }
+        .update-date { font-size: 0.8rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        a { color: var(--primary); text-decoration: none; }
+        
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            padding-top: 40px;
+            color: #475569;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Privacy Policy</h1>
+            <div class="lang-switch">
+                <button onclick="showLang('en')" id="btn-en">English</button>
+                <button onclick="showLang('zh')" id="btn-zh">简体中文</button>
+            </div>
+        </header>
+        
+        <article id="content-en" class="section">
+            <span class="update-date">Effective Date: January 30, 2026</span>
+            <h2>Our Privacy Philosophy</h2>
+            <p>GeekBio is a local-first application designed for the iOS platform. We believe your data belongs to you.</p>
+            <h2>Data Storage</h2>
+            <p>All personal profiles, skills, and links are stored <strong>locally on your device</strong> via SwiftData. We do not own or operate any servers to store your data.</p>
+            <h2>Third-Party Services</h2>
+            <p>We do not integrate any third-party analytics, tracking, or advertising SDKs. Your behavior within the app is never monitored.</p>
+            <h2>Permissions</h2>
+            <p><strong>Photo Library:</strong> Required only for the "Save to Photos" function. We do not access your existing photo library content.</p>
+            <h2>Contact</h2>
+            <p>For any privacy-related inquiries: <a href="mailto:madfool@icloud.com">madfool@icloud.com</a></p>
+        </article>
+
+        <article id="content-zh" class="section">
+            <span class="update-date">生效日期：2026年1月30日</span>
+            <h2>隐私理念</h2>
+            <p>GeekBio 是一款面向 iOS 平台的本地应用。我们深信您的数据仅属于您自己。</p>
+            <h2>数据存储</h2>
+            <p>您所有的个人资料、技能和链接均通过 SwiftData <strong>存储在您的设备本地</strong>。我们不运营任何用于存储您数据的服务器。</p>
+            <h2>第三方服务</h2>
+            <p>应用内未集成任何第三方分析、追踪或广告 SDK。我们不会监控您在应用内的任何行为。</p>
+            <h2>权限说明</h2>
+            <p><strong>照片库权限：</strong> 仅在您执行“保存到照片”操作时使用。我们不会访问或读取您相册中的已有内容。</p>
+            <h2>联系方式</h2>
+            <p>隐私相关咨询请联系：<a href="mailto:madfool@icloud.com">madfool@icloud.com</a></p>
+        </article>
+
+        <footer>
+            <p>&copy; 2026 Cheng Liang. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showLang(lang) {
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-switch button').forEach(el => el.classList.remove('active'));
+            const content = document.getElementById('content-' + lang);
+            const btn = document.getElementById('btn-' + lang);
+            if (content && btn) {
+                content.classList.add('active');
+                btn.classList.add('active');
+            }
+        }
+        (function autoDetectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage; 
+            showLang(userLang.startsWith('zh') ? 'zh' : 'en');
+        })();
+    </script>
+</body>
+</html>
