@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | Roam Focus</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #0f172a;
+            --card: rgba(30, 41, 59, 0.7);
+            --text-p: #f8fafc;
+            --text-s: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+            background-color: var(--bg);
+            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
+            color: var(--text-p);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            background: linear-gradient(to bottom, #ffffff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .lang-switch button {
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-s);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .section {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 { font-size: 1.4rem; margin: 30px 0 15px; color: var(--primary); border-left: 4px solid var(--primary); padding-left: 15px;}
+        h2:first-of-type { margin-top: 0; }
+        h3 { font-size: 1.1rem; margin: 20px 0 10px; color: #fff; }
+        p, li { color: var(--text-s); font-size: 0.95rem; margin-bottom: 12px; }
+        ul { padding-left: 20px; margin-bottom: 20px; }
+        
+        .faq-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .q { color: #f1f5f9; font-weight: 600; display: block; margin-bottom: 5px; }
+
+        .contact-card {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--primary);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            padding-top: 40px;
+            color: #475569;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .section { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Roam Focus</h1>
+            <div class="lang-switch">
+                <button onclick="showLang('en')" id="btn-en">English</button>
+                <button onclick="showLang('zh')" id="btn-zh">简体中文</button>
+            </div>
+        </header>
+        
+        <article id="content-en" class="section">
+            <h2>Support Center</h2>
+            <h3>Common Questions</h3>
+            <div class="faq-item">
+                <span class="q">How to start a journey?</span>
+                <p>Select your preferred transportation mode and focus duration on the Setup screen, then tap "Start Journey" to begin your virtual travel.</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">What are POIs?</span>
+                <p>POIs (Points of Interest) are landmarks you discover during your focus session. The further you "travel", the more unique places you'll find.</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">How to switch UI styles?</span>
+                <p>Go to "Settings" to toggle between "Liquid Glass" and "Neomorphic" visual styles to suit your focus environment.</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">How to save my journey summary?</span>
+                <p>At the end of a session, tap the "Save" icon in the Journey Summary view to export a beautiful record to your Photo Library.</p>
+            </div>
+
+            <h3>Troubleshooting</h3>
+            <ul>
+                <li><strong>Journey not progressing:</strong> Ensure Location Services are set to "While Using" in iOS Settings so the app can calculate your virtual movement.</li>
+                <li><strong>Weather not updating:</strong> Check your internet connection. Roam Focus uses WeatherKit to sync real-time conditions.</li>
+                <li><strong>Missing summary image:</strong> Please ensure you've granted "Add Photos Only" permission to save images.</li>
+            </ul>
+
+            <div class="contact-card">
+                <p style="margin-bottom: 10px;">Need more help?</p>
+                <a href="mailto:madfool@icloud.com">madfool@icloud.com</a>
+            </div>
+        </article>
+
+        <article id="content-zh" class="section">
+            <h2>支持中心</h2>
+            <h3>常见问题</h3>
+            <div class="faq-item">
+                <span class="q">如何开启一段旅程？</span>
+                <p>在设置页面选择您偏好的运输模式和专注时长，点击“开始旅程”即可进入虚拟环球旅行。</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">什么是 POI（兴趣点）？</span>
+                <p>POI 是您在专注期间发现的地标建筑。随着专注时间的增加，您的虚拟角色会“行进”得更远，从而解锁更多独特的地点。</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">如何切换视觉风格？</span>
+                <p>在“设置”中，您可以随心切换“液态玻璃 (Liquid Glass)”或“拟态 (Neomorphic)”风格，以匹配您的专注氛围。</p>
+            </div>
+            <div class="faq-item">
+                <span class="q">如何保存旅程总结？</span>
+                <p>专注结束后，在旅程总结页面点击“保存”图标，即可将精美的旅程卡片导出至系统相册。</p>
+            </div>
+
+            <h3>故障排查</h3>
+            <ul>
+                <li><strong>旅程进度没有更新：</strong> 请在系统“设置”中确保 Roam Focus 的位置权限已设置为“使用期间允许”，以便应用模拟虚拟位移。</li>
+                <li><strong>天气信息显示异常：</strong> 请检查您的网络连接。应用通过 WeatherKit 同步实时天气环境。</li>
+                <li><strong>无法保存图片：</strong> 请确保已授予应用“仅添加照片”的权限。</li>
+            </ul>
+
+            <div class="contact-card">
+                <p style="margin-bottom: 10px;">需要更多帮助？</p>
+                <a href="mailto:madfool@icloud.com">madfool@icloud.com</a>
+            </div>
+        </article>
+
+        <footer>
+            <p>&copy; 2026 Roam Focus. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showLang(lang) {
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-switch button').forEach(el => el.classList.remove('active'));
+            const content = document.getElementById('content-' + lang);
+            const btn = document.getElementById('btn-' + lang);
+            if (content && btn) {
+                content.classList.add('active');
+                btn.classList.add('active');
+            }
+        }
+        (function autoDetectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage; 
+            showLang(userLang.startsWith('zh') ? 'zh' : 'en');
+        })();
+    </script>
+</body>
+</html>
